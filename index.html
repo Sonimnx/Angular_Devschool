@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="timeSheetApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-controller="TimeSheetController as vm">
+<div class="panel panel-default" style="margin:20px;">
+    <div class="panel-heading">TimeSheet App</div>
+    <div class="panel-body">
+        <form ng-submit="vm.addNewItem(vm.user,vm.task, vm.hours)">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="User" ng-model="vm.user" required>
+                <input type="text" class="form-control" placeholder="Task" ng-model="vm.task" required>
+                <input type="number" class="form-control" placeholder="Numer of Hours" ng-model="vm.hours" required>
+                <button class="btn btn-default">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <table class="table table-hover" ng-show=" vm.getNumberOfRecords()>0">
+        <thead>
+        <tr>
+            <td>User</td>
+            <td>Tasks</td>
+            <td>Total Hours</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in vm.records | orderBy:sortBy" ng-class="vm.warningLevel(item.hours);">
+            <td>{{item.user}}</td>
+            <td>
+                <ol>
+                    <li ng-repeat="task in item.tasks">{{task}}</li>
+                </ol>
+            </td>
+            <td>{{item.hours}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div ng-show=" vm.getNumberOfRecords()>1">
+        <div class="form-control">Sort the data by</div>
+        <select ng-model="sortBy" class="form-control">
+            <option value="user">Name</option>
+            <option value="-hours">Number of Hours Desc</option>
+            <option value="hours">Number of Hours Asc</option>
+        </select>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="app/app.module.js"></script>
+<script type="text/javascript" src="app/timesheet.controller.js"></script>
+
+</body>
+</html>
