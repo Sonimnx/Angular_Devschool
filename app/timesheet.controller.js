@@ -90,7 +90,7 @@
                 vm.records = data;
             });
         };
-        // vm.getItems();
+        vm.getItems();
     };
 
     module.controller("TimeSheetController", TimeSheetController);
