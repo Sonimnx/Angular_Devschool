@@ -48,14 +48,17 @@
         </tbody>
     </table>
     <div ng-show=" vm.getNumberOfRecords()>1">
-        <div class="form-control">Sort the data by</div>
+        <!--<div class="form-control">Sort the data by</div>-->
         <select ng-model="sortBy" class="form-control">
+            <option value="" ng-hide="sortBy!==null">Sort by</option>
             <option value="user">Name</option>
             <option value="-hours">Number of Hours Desc</option>
             <option value="hours">Number of Hours Asc</option>
         </select>
     </div>
 </div>
+
+
 <!--bower:js-->
 <script src="vendor/angular/angular.js"></script>
 <!--endbower-->
