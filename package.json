@@ -1,0 +1,29 @@
+{
+  "name": "timesheetsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sonimnx/Angular_Devschool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sonimnx/Angular_Devschool/issues"
+  },
+  "homepage": "https://github.com/Sonimnx/Angular_Devschool#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.2",
+    "gulp-server-livereload": "^1.9.2",
+    "jshint": "^2.9.4",
+    "wiredep": "^4.0.0"
+  }
+}

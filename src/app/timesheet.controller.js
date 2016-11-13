@@ -29,7 +29,7 @@
                 return "danger";
             }
             else if (numberOfHours > 4 && numberOfHours < 6) {
-                return "warning"
+                return "warning";
             }
             else {
                 return "success";
@@ -57,7 +57,7 @@
             };
 
             var indexOfUser = checkIfUserExists(user);
-            if (indexOfUser != null) {
+            if (indexOfUser !== null) {
                 if (!isTaskAlreadyAdded(vm.records[indexOfUser].tasks, task)) {
                     vm.records[indexOfUser].tasks.push(task);
                     vm.records[indexOfUser].hours = vm.records[indexOfUser].hours + hours;
@@ -85,7 +85,7 @@
         };
 
         vm.getItems = function () {
-            $http.get("http://www.mocky.io/v2/581e046b0f0000d82f02daf6").success(function (data) {
+            $http.get("http://www.mocky.io/v2/582840310f0000e10e410014").success(function (data) {
                 console.log(data);
                 vm.records = data;
             });
